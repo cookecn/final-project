@@ -49,3 +49,7 @@ export default connect(
   mapStateToProps,
   { logoutUser }
 )(Dashboard);
+
+//EDIT DASHBOARD TO HAVE USER CONTENT SHOW ON FAR RIGHT SIDE OF SCREEN
+//CENTER WILL CONTAIN FEED OF USERS, ONCE SOCKET.IO IS SET UP
+//ADD FOOTER to app.js
