@@ -39,12 +39,15 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api/users", users);
 app.use("/api/messages", messages);
 
+app.get('/messages', function(req,res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
 io.on('conenction', (socket) => {
   console.log('a user is connected');
-  socket.emit('message', { hello: 'world' });
-  socket.on('message', function(addMessage) {
-    console.log(addMessage);
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function(data) {
+    console.log(data);
   })
 });
 
