@@ -60,6 +60,7 @@ class Navbar extends Component {
               >
                 Register
               </Link>
+              </li>
               <li>
               <Link
                 to="/login"
@@ -72,7 +73,6 @@ class Navbar extends Component {
               >
                 Log In
               </Link>
-              </li>
               </li>
               <li>
                 <Link to="/dashboard">

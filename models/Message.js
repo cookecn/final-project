@@ -1,14 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Create Schema
 const MessageSchema = new Schema({
+    name: {
+        type: String
+    },
     message: {
         type: String
     },
     date: {
-        type: String,
+        type: Date,
         default: Date.now
     }
-  });
-  module.exports = Message = mongoose.model("messages", MessageSchema);
+});
+
+module.exports = Message = mongoose.model('messages', MessageSchema);
