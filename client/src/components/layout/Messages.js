@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 //import { Link } from "react-router-dom";
+//import { Collection, CollectionItem } from "../collection/Collection";
 
 class Messages extends Component {
   state = {
@@ -88,8 +89,12 @@ class Messages extends Component {
           </button>
           <div className="row">
             <div className="col s12" id="messages">
-              <h4>{this.state.name}</h4>
-              <p>{this.state.message}</p>
+              <ul className="collection">
+                <li className="collection-item">
+                    <h4>{this.state.name}</h4>
+                    <p>{this.state.message}</p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
