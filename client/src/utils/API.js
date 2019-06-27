@@ -6,12 +6,12 @@ export default {
         return axios.get('/api/messages');
     },
     getMessage: function(id) {
-        return axios.get('/api/messages/' + id);
+        return axios.get('/messages/' + id);
     },
     deleteMessage: function(id) {
-        return axios.delete('/api/messages/' + id);
+        return axios.delete('/messages/' + id);
     },
     saveMessage: function(messageData) {
-        return axios.post("/api/messages", messageData);
+        return axios.post("/messages", messageData);
     }
 };

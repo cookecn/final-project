@@ -13,6 +13,8 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/layout/Footer";
 import Messages from "./components/layout/Messages";
+import NewsFeed from "./components/layout/NewsFeed";
+//import NoMatch from './pages/NoMatch';
 // Check for token to keep user logged in
 
 if (localStorage.jwtToken) {
@@ -43,6 +45,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/messages" component={Messages} />
+            <Route exact path="/live" component={NewsFeed} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

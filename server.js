@@ -10,9 +10,59 @@ const ClientManager = require('./ClientManager');
 const ChatroomManager = require('./ChatroomManager');
 const makeHandlers = require('./Handlers');
 const ioClient = require('socket.io-client');
+require('dotenv').config({ path: '.env' })
+const NewsAPI = require('newsapi');
+const Pusher = require('pusher');
+const cors = require('cors');
 
 const clientManager = ClientManager();
 const chatroomManager = ChatroomManager();
+
+const pusher = new Pusher({
+  appId: process.env.pusherId,
+  key: process.env.pusherKey,
+  secret: process.env.pusherSecret,
+  cluster: process.env.pusherCluster,
+  useTLS: true,
+});
+
+const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
+
+const fetchNews = (searchTerm, pageNum) => 
+  newsapi.v2.everything({
+    q: searchTerm,
+    language: 'en',
+    page: pageNum,
+    pageSize: 10,
+  });
+
+app.use(cors());
+
+function updateFeed(topic) {
+  let counter = 2;
+  setInterval(() => {
+    fetchNews(topic, counter)
+    .then(response => {
+      pusher.trigger('news-channel', 'update-news', {
+        articles: response.articles,
+      });
+      counter += 1;
+    })
+    .catch(err => console.log(err));
+  }, 5000);
+}
+
+app.get('/live', (req, res) => {
+  const topic = 'gaming';
+  fetchNews(topic, 1)
+  .then(response => {
+    res.json(response.articles);
+    updateFeed(topic);
+  })
+  .catch(err => console.log(err));
+});
+
+
 
 // Bodyparser middleware
 app.use(

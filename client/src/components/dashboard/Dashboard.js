@@ -66,6 +66,13 @@ return (
               </b>
             <p className="flow-text grey-text text-darken-1">
             </p>
+            <Link to="/live" style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem"
+              }} 
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3">Saved</Link>
 
             </h4>
             </div>

@@ -17,17 +17,17 @@ class Navbar extends Component {
           <ul id="dropdown1" className="dropdown-content">
             <li>
               <i className="material-icons">code</i>
-              Title 1
+              Gamer
             </li>
             <li>
             <i className="material-icons">code</i>
-              Title 2            </li>
+              Environment           </li>
             <li>
             <i className="material-icons">code</i>
-              Title 3            </li>
+              Social           </li>
             <li>
             <i className="material-icons">code</i>
-              Title 4            </li>
+              Non-Profit            </li>
           </ul>
           <div className="nav-wrapper black">
             <Link
