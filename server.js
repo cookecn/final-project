@@ -14,6 +14,113 @@ require('dotenv').config({ path: '.env' })
 const NewsAPI = require('newsapi');
 const Pusher = require('pusher');
 const cors = require('cors');
+const stream = require('getstream');
+
+client = stream.connect(process.env.GETSTREAM_APP_KEY, process.env.GETSTREAM_APP_SECRET, process.env.GETSTREAM_APP_ID);
+
+
+const userToken = client.createUserToken('the-user-id');
+console.log("the user token is: " + userToken);
+
+const feed = client.feed('timeline', 'feed');
+feed.addActivity({
+    'actor': client.user('the-user-id').ref(),
+    'verb': 'post',
+    'object': 'I love this picture',
+    'attachments': {
+        'og': {
+            'title': 'Crozzon di Brenta photo by Lorenzo Spoleti',
+            'description': 'Download this photo in Italy by Lorenzo Spoleti',
+            'url': 'https://unsplash.com/photos/yxKHOTkAins',
+            'images': [
+                {
+                    'image': 'https://goo.gl/7dePYs'
+                }
+            ]
+        }
+    }
+});
+
+const colbyFeed = client.feed('user', 'colby', process.env.GETSREAM_APP_TOKEN);
+
+colbyFeed.addActivity({
+  actor: 'colby',
+  verb: 'tweet',
+  tweet: 'Hello, World',
+  object: 1
+});
+
+const colbyNotifications = client.feed('notification', 'colby', process.env.GETSTREAM_APP_TOKEN);
+
+colbyNotifications;
+
+async () => {
+  await client.setUser({
+  name: "Colby Cooke",
+  occupation: "Software Developer",
+  gender: "male"
+  })
+};
+
+client.user("john-doe").getOrCreate({
+  name: "John Doe",
+  occupation: "Farmer",
+  gender: "male"
+})
+
+client.user('john-doe').get();
+
+const streamNode = require('getstream-node');
+const streamMongoose = new streamNode.MongooseBackend()
+streamMongoose.enrichActivities(activities).then(function(enrichedActivities) {
+    console.log(enrichedActivities)
+}).catch(function(err) {
+    console.log('error', err)
+});
+
+/*const followUser = (username, following) => {
+  const timelineFeed = client.feed('timeline', username);
+  timelineFeed.follow('user', following);
+};
+
+const getTimelineFeed = (username) => {
+  const timelineFeed = client.feed('timeline', username);
+  return timelineFeed.get({
+    limit: 10,
+    reactions: {
+      counts: true,
+    },
+  }).then((result) => {
+    return result;
+  });
+};
+
+const addPostActivity = (username, postId, postTitle, timestamp) => {
+  const userFeed = client.feed('user', username);
+  return userFeed.addActivity({
+    actor: username,
+    verb: 'post',
+    object: postId,
+    foreign_id: `post:${postId}`,
+    postTitle,
+    timestamp,
+  });
+};
+
+const addReaction = (username, type, postActivityId) => {
+  const userClient = getClient();
+
+  const reactions = client.reactions.filter({
+    'avitivity_id': postActivityId
+  });
+
+  return userClient.reactions.add(type, postActivityId, {
+    actor: username,
+    timestamp: new Date().getTime(),
+  });
+
+};*/
+
 
 const clientManager = ClientManager();
 const chatroomManager = ChatroomManager();

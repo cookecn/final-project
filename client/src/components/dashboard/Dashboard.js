@@ -67,6 +67,18 @@ class Dashboard extends Component {
             >
               profile
             </Link>
+            <Link
+              to="/stream"
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem"
+              }}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >
+              Chat
+            </Link>
           </div>
         </div>
         <div className="col s12 m4 l2">

@@ -10,6 +10,7 @@
     "pusher": "^2.2.0",
     "pushid": "^1.0.0",
     "react": "^16.8.6",
+    "react-activity-feed": "^0.9.16",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",

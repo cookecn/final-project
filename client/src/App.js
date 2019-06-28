@@ -15,6 +15,7 @@ import Footer from "./components/layout/Footer/Footer";
 import Messages from "./components/layout/Messages";
 import NewsFeed from "./components/layout/NewsFeed";
 import Profile from "./components/layout/Profile";
+import Stream from "./components/layout/Stream/Stream";
 import './App.css';
 //import NoMatch from './pages/NoMatch';
 // Check for token to keep user logged in
@@ -49,6 +50,7 @@ class App extends Component {
             <Route exact path="/messages" component={Messages} />
             <Route exact path="/live" component={NewsFeed} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/stream" component={Stream} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
