@@ -11,9 +11,11 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import Footer from "./components/layout/Footer";
+import Footer from "./components/layout/Footer/Footer";
 import Messages from "./components/layout/Messages";
 import NewsFeed from "./components/layout/NewsFeed";
+import Profile from "./components/layout/Profile";
+import './App.css';
 //import NoMatch from './pages/NoMatch';
 // Check for token to keep user logged in
 
@@ -46,6 +48,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/messages" component={Messages} />
             <Route exact path="/live" component={NewsFeed} />
+            <Route exact path="/profile" component={Profile} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

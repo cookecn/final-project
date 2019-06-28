@@ -12,13 +12,13 @@ class NewsFeed extends Component {
       .then(response => response.json())
       .then(articles => {
         this.setState({
-          newsItems: [...this.state.newsItems, ...articles],
+          newsItems: [...this.state.newsItems, ...articles]
         });
       }).catch(err => console.log(err));
   
       const pusher = new Pusher('edfeac1811c6394a729c', {
         cluster: 'us2',
-        ecrypted: true,
+        useTLS: true,
       });
   
       const channel = pusher.subscribe('news-channel');
@@ -28,17 +28,23 @@ class NewsFeed extends Component {
         });
       });
     }
+
+    
     render() {
       const NewsItem = (article, id) => (
-        <li key={id}><a href={`${article.url}`}>{article.title}</a></li>
+        <li className="collection-item avatar" key={id}>
+          <i className="material-icons circle red">play_arrow</i>
+          <span className="title"><a href={`${article.url}`}>{article.title}</a></span>
+          <p>{article.author}<br />{article.description}</p>
+        </li>
       );
   
       const newsItems = this.state.newsItems.map(e => NewsItem(e, pushid()));
      return (
         <div className="container">
-            <h1 className="App-title">Live News Feed</h1>
-
-            <ul className="news-items">{newsItems}</ul>
+            <ul className="collection with-header">
+            {newsItems}
+            </ul>
         </div>
      );
     }

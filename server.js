@@ -40,17 +40,16 @@ app.use(cors());
 
 function updateFeed(topic) {
   let counter = 2;
-  setInterval(() => {
+  //setInterval(() => {
     fetchNews(topic, counter)
     .then(response => {
-      pusher.trigger('news-channel', 'update-news', {
-        articles: response.articles,
-      });
+        const articleString = JSON.stringify(response.articles);
+        pusher.trigger('news-channel', 'update-news', articleString);
       counter += 1;
     })
     .catch(err => console.log(err));
-  }, 5000);
-}
+  }//, 5000);
+//}
 
 app.get('/live', (req, res) => {
   const topic = 'gaming';
@@ -60,8 +59,7 @@ app.get('/live', (req, res) => {
     updateFeed(topic);
   })
   .catch(err => console.log(err));
-});
-
+})
 
 
 // Bodyparser middleware

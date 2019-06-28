@@ -8,12 +8,12 @@ class Dashboard extends Component {
     e.preventDefault();
     this.props.logoutUser();
   };
-render() {
+  render() {
     const { user } = this.props.auth;
-return (
-        <div style={{ height: "75vh" }} className="row">
-          <div className="col s12 m4 l2">
-            <div className="container center-align">
+    return (
+      <div style={{ height: "75vh" }} className="row">
+        <div className="col s12 m4 l2">
+          <div className="container center-align">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
@@ -34,51 +34,62 @@ return (
               Logout
             </button>
           </div>
-          </div>
+        </div>
 
-            
-          <div className="col s12 m4 l8">
-           <div className="container center-align">
+        <div className="col s12 m4 l8">
+          <div className="container center-align">
             <h4>
-              <b>
-              Chat Column
-              </b>
-            <p className="flow-text grey-text text-darken-1">
-            </p>
-
+              <b>Chat Column</b>
+              <p className="flow-text grey-text text-darken-1" />
             </h4>
-              <Link to="/messages" style={{
+            <Link
+              to="/messages"
+              style={{
                 width: "150px",
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 marginTop: "1rem"
-              }} 
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3">Chat</Link>
+              }}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >
+              Chat
+            </Link>
 
-          </div>
-
-          </div>
-          <div className="col s12 m4 l2">
-            <div className="container center-align">
-            <h4>
-              <b>
-              Right Column
-              </b>
-            <p className="flow-text grey-text text-darken-1">
-            </p>
-            <Link to="/live" style={{
+            <Link
+              to="/profile"
+              style={{
                 width: "150px",
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 marginTop: "1rem"
-              }} 
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3">Saved</Link>
-
-            </h4>
-            </div>
-            
+              }}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >
+              profile
+            </Link>
           </div>
         </div>
+        <div className="col s12 m4 l2">
+          <div className="container center-align">
+            <h4>
+              <b>Right Column</b>
+              <p className="flow-text grey-text text-darken-1" />
+              <Link
+                to="/live"
+                style={{
+                  width: "150px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                  marginTop: "1rem"
+                }}
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              >
+                Live News Feed
+              </Link>
+            </h4>
+          </div>
+        </div>
+      </div>
     );
   }
 }

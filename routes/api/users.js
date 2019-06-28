@@ -9,7 +9,20 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 
-
+router.post("/editProfile", (req, res) => {
+  User.updateBio({ bio: req.body.bio }).then(user => {
+    if (user) {
+      return res.status(400).json(errors);
+    } else {
+      const newBio = new User({
+        bio: req.body.bio 
+      });
+      newBio.save()
+      .then(user => res.json(user))
+      .catch(err => console.log(err));
+    }
+  })
+})
 // @route POST api/users/register
 // @desc Register user
 // @access Public
