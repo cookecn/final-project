@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import Stream from "../layout/Stream/Stream";
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
   render() {
-    const { user } = this.props.auth;
+    //const { user } = this.props.auth;
     return (
-      <div style={{ height: "75vh" }} className="row">
+      /*<div style={{ height: "75vh" }} className="row">
         <div className="col s12 m4 l2">
           <div className="container center-align">
             <h4>
@@ -101,6 +102,12 @@ class Dashboard extends Component {
             </h4>
           </div>
         </div>
+      </div>
+    );
+  }
+}*/
+      <div>
+        <Stream />
       </div>
     );
   }

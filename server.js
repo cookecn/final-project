@@ -22,27 +22,29 @@ client = stream.connect(process.env.GETSTREAM_APP_KEY, process.env.GETSTREAM_APP
 const userToken = client.createUserToken('the-user-id');
 console.log("the user token is: " + userToken);
 
-const feed = client.feed('timeline', 'feed');
-feed.addActivity({
+const colbyFeed = client.feed('timeline', 'the-user-id', process.env.GETSREAM_APP_TOKEN);
+
+/*colbyFeed.addActivity({
+  username: "Colby",
+  actor: 'colby',
+  verb: 'tweet',
+  tweet: 'Hello, World',
+  object: 1
+});
+/*feed.addActivity({
     'actor': client.user('the-user-id').ref(),
     'verb': 'post',
-    'object': 'I love this picture',
+    'object': 'Testing, testing, 1,2,3',
     'attachments': {
         'og': {
-            'title': 'Crozzon di Brenta photo by Lorenzo Spoleti',
-            'description': 'Download this photo in Italy by Lorenzo Spoleti',
-            'url': 'https://unsplash.com/photos/yxKHOTkAins',
-            'images': [
-                {
-                    'image': 'https://goo.gl/7dePYs'
-                }
-            ]
+            'title': "In today's news, this is a test!",
+            'description': 'If only, if only, it would work like it did yesterday...'
         }
     }
 });
 
 
-/*const colbyFeed = client.feed('user', 'colby', process.env.GETSREAM_APP_TOKEN);
+const colbyFeed = client.feed('timeline', 'the-user-id', process.env.GETSREAM_APP_TOKEN);
 
 colbyFeed.addActivity({
   actor: 'colby',
@@ -67,7 +69,7 @@ client.user("john-doe").getOrCreate({
   gender: "male"
 })
 
-client.user('john-doe').get();
+client.user('').get();
 
 const streamNode = require('getstream-node');
 const streamMongoose = new streamNode.MongooseBackend()

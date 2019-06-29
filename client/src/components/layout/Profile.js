@@ -27,7 +27,7 @@ class Profile extends Component {
           <div className="card">
             <div className="card-image">
               <img src={profileImage} href="/profile" alt="profile" />
-              <span className="card-title">{user.name.split(" ")[0]}</span>
+              <span className="card-title">{user.name}</span>
             </div>
             <div className="card-content" onClick={this.handleInputChange}>
               <p>Bio goes here</p>
@@ -39,23 +39,7 @@ class Profile extends Component {
         </div>
 
         <div className="col s9">
-        <NewsFeed />
-        </div>
-        <div className="row">
-          <div className="col s12 m12 l12 center-align">
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
-          </div>
+          <NewsFeed />
         </div>
       </div>
     );
@@ -63,13 +47,13 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-    logoutUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
-  };
-  const mapStateToProps = state => ({
-    auth: state.auth
-  });
-  export default connect(
-    mapStateToProps,
-    { logoutUser }
-  )(Profile);
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Profile);

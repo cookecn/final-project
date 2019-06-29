@@ -50,8 +50,8 @@ class Navbar extends Component {
               }}
               className="brand-logo center white-text"
             >
-              <i className="material-icons">code</i>
-              Final Project
+              <i className="material-icons">style</i>
+              Titles
             </Link>
             <ul id="dropdown1" className="left hide-on-med-and-down white-text">
               <li>
@@ -92,7 +92,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard">
+                <Link to="/profile">
                   <i className="material-icons">person</i>
                 </Link>
               </li>

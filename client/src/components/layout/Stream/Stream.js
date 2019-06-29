@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StreamApp, NotificationDropdown, FlatFeed, LikeButton, Activity, CommentField, CommentList, StatusUpdateForm } from 'react-activity-feed';
+import { StreamApp, FlatFeed, LikeButton, Activity, CommentField, CommentList, StatusUpdateForm } from 'react-activity-feed';
 import 'react-activity-feed/dist/index.css';
 
 class Stream extends Component {
@@ -10,8 +10,7 @@ class Stream extends Component {
             appId={process.env.REACT_APP_GETSTREAM_APP_ID}
             token={process.env.REACT_APP_GETSTREAM_APP_TOKEN}
             >
-            <NotificationDropdown notify/>
-            <StatusUpdateForm feedGroup="timeline" userId="user-colby" />
+            <StatusUpdateForm feedGroup="timeline" userId="the-user-id" />
             <FlatFeed
           options={{reactions: { recent: true } }}
           notify
