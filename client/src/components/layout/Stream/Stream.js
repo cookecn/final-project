@@ -6,9 +6,9 @@ class Stream extends Component {
     render() {
         return(
             <StreamApp
-            apiKey={process.env.REACT_APP_GETSTREAM_KEY}
-            appId={process.env.REACT_APP_GETSTREAM_ID}
-            token={process.env.REACT_APP_GETSTREAM_TOKEN}
+            apiKey={process.env.REACT_APP_GETSTREAM_APP_KEY}
+            appId={process.env.REACT_APP_GETSTREAM_APP_ID}
+            token={process.env.REACT_APP_GETSTREAM_APP_TOKEN}
             >
             <NotificationDropdown notify/>
             <StatusUpdateForm feedGroup="timeline" userId="user-colby" />

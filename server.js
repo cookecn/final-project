@@ -41,7 +41,8 @@ feed.addActivity({
     }
 });
 
-const colbyFeed = client.feed('user', 'colby', process.env.GETSREAM_APP_TOKEN);
+
+/*const colbyFeed = client.feed('user', 'colby', process.env.GETSREAM_APP_TOKEN);
 
 colbyFeed.addActivity({
   actor: 'colby',
@@ -50,9 +51,7 @@ colbyFeed.addActivity({
   object: 1
 });
 
-const colbyNotifications = client.feed('notification', 'colby', process.env.GETSTREAM_APP_TOKEN);
 
-colbyNotifications;
 
 async () => {
   await client.setUser({
