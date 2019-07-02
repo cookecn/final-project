@@ -53,7 +53,7 @@ class Navbar extends Component {
               <i className="material-icons">style</i>
               Titles
             </Link>
-            <ul id="dropdown1" className="left hide-on-med-and-down white-text">
+            <ul id="dropdown1" className="left white-text">
               <li>
                 <a
                   className="dropdown-trigger"

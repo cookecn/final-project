@@ -30,7 +30,17 @@ class Profile extends Component {
               <span className="card-title">{user.name}</span>
             </div>
             <div className="card-content" onClick={this.handleInputChange}>
-              <p>Bio goes here</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam 
+              aliquam varius lectus et porttitor. Maecenas vitae velit semper, 
+              euismod ante eget, volutpat est. Donec maximus tortor eu nulla aliquam, 
+              consectetur vulputate nulla rutrum. Nulla sed libero vel tellus pharetra 
+              imperdiet in id ipsum. Proin ultrices facilisis leo, tempus cursus mauris 
+              imperdiet bibendum. Donec accumsan est ut orci fermentum, nec bibendum turpis 
+              vehicula. Morbi vel velit enim. Donec faucibus turpis sed mauris placerat, 
+              sit amet semper libero lacinia. Interdum et malesuada fames ac ante ipsum primis 
+              in faucibus. Pellentesque tincidunt vulputate turpis, in facilisis enim malesuada 
+              eu. Cras rutrum metus quis velit tristique malesuada. Maecenas non dui ac arcu sagittis 
+              dapibus. Vivamus at velit quis nisl vestibulum pretium consequat ut magna.</p>
             </div>
             <div className="card-action">
               <Link to="/editProfile">Edit Profile</Link>

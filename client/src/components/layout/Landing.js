@@ -27,7 +27,7 @@ class Landing extends Component {
 
             <div className="col s6 center-align">
             <Link to="/profile">
-            <button className="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">person</i></button>
+            <button className="btn-floating btn-large waves-effect waves-light blue"><i className="material-icons">person</i></button>
             </Link>
             </div>
             <div className="col s6 center-align">

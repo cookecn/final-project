@@ -6,19 +6,17 @@ const users = require("./routes/api/users")
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
-const ClientManager = require('./ClientManager');
-const ChatroomManager = require('./ChatroomManager');
-const makeHandlers = require('./Handlers');
-const ioClient = require('socket.io-client');
 require('dotenv').config({ path: '.env' })
 const NewsAPI = require('newsapi');
 const Pusher = require('pusher');
 const cors = require('cors');
 const stream = require('getstream');
 
+
+//GetStream api for feed
 client = stream.connect(process.env.GETSTREAM_APP_KEY, process.env.GETSTREAM_APP_SECRET, process.env.GETSTREAM_APP_ID);
 
-
+//userToken needed for user feed. Still need to connect this user to the database user. So, upon login, user is connected to database with the getstream api activated for that user.
 const userToken = client.createUserToken('the-user-id');
 console.log("the user token is: " + userToken);
 
@@ -122,10 +120,7 @@ const addReaction = (username, type, postActivityId) => {
 
 };*/
 
-
-const clientManager = ClientManager();
-const chatroomManager = ChatroomManager();
-
+//news Articles for updating every five seconds using the pusher api.
 const pusher = new Pusher({
   appId: process.env.pusherId,
   key: process.env.pusherKey,
@@ -134,6 +129,7 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
+//newsAPI
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
 const fetchNews = (searchTerm, pageNum) => 
@@ -158,8 +154,12 @@ function updateFeed(topic) {
     .catch(err => console.log(err));
   }//, 5000);
 //}
+//const topic = ['gaming', 'environment', 'non-profit', 'social']
 
 app.get('/live', (req, res) => {
+  //for (var i = 0, i < topic.length; i++) {
+    //topic = [i];
+  //}
   const topic = 'gaming';
   fetchNews(topic, 1)
   .then(response => {
@@ -199,37 +199,6 @@ if (process.env.NODE_ENV === "production") {
 // Routes
 app.use("/api/users", users);
 //app.use("/api/messages", messages);
-
-
-io.on('connection', (client) => {
-  const {
-    handleRegister,
-    handleJoin,
-    handleLeave,
-    handleMessage,
-    handleGetChatrooms,
-    handleGetAvailableUsers,
-    handleDisconnect
-  } = makeHandlers(client, clientManager, chatroomManager)
-  console.log('client is connected at: ', client.id);
-  clientManager.addClient(client);
-  client.on('register', handleRegister);
-  client.on('join', handleJoin);
-  client.on('leave', handleLeave);
-  client.on('message', handleMessage);
-  client.on('chatrooms', handleGetChatrooms);
-  client.on('availableUsers', handleGetAvailableUsers);
-
-  client.on('disconnect',  function() {
-    console.log('client disconnect', client.id);
-    handleDisconnect();
-  });
-
-  client.on('error', function (err) {
-    console.log('received error from client:', client.id);
-    console.log(err);
-  });
-});
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 server.listen(port, () => console.log(`Server up and running on port ${port} !`));

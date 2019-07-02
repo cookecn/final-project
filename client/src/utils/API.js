@@ -1,17 +1,19 @@
 import axios from "axios";
+const query = ['gaming', 'environment', 'non-profit', 'food'];
+const newsKey = process.env.REACT_APP_NEWSAPI_KEY;
+const BASEURL = "https://newsapi.org/v2/everything?q=" + query + "&from=2019-06-02&sortBy=publishedAt&apiKey=" + newsKey;
 
 export default {
-    //Gets all messages
-    getMessages: function() {
-        return axios.get('/api/messages');
+    searchNews: function(query) {
+      return axios.get(BASEURL + query);
     },
-    getMessage: function(id) {
-        return axios.get('/messages/' + id);
+    getNews: function() {
+      return axios("/api/news");
     },
-    deleteMessage: function(id) {
-        return axios.delete('/messages/' + id);
+    saveNews: function(newsData) {
+      return axios.post("/api/news", newsData);
     },
-    saveMessage: function(messageData) {
-        return axios.post("/messages", messageData);
+    deleteNews: function(id) {
+      return axios.delete("api/news/" + id)
     }
-};
+  };
