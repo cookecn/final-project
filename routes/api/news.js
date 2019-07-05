@@ -1,3 +1,4 @@
+/*
 const router = require('express').Router();
 const newsController = require('../../controllers/newsController');
 
@@ -14,3 +15,4 @@ const newsController = require('../../controllers/newsController');
 
 
 module.exports = router;
+*/

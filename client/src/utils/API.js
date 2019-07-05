@@ -1,3 +1,4 @@
+/*
 import axios from "axios";
 const query = ['gaming', 'environment', 'non-profit', 'food'];
 const newsKey = process.env.REACT_APP_NEWSAPI_KEY;
@@ -17,3 +18,6 @@ export default {
       return axios.delete("api/news/" + id)
     }
   };
+
+
+  */

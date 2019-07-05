@@ -205,7 +205,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Routes
 app.use("/api/users", users);
-app.use("/api/news", news);
+//app.use("/api/news", news);
 //app.use("/api/messages", messages);
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there

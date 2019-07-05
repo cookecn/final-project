@@ -1,3 +1,5 @@
+/*
+
 const db = require('../models');
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
@@ -7,7 +9,7 @@ const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
     language: 'en',
     page: pageNum,
     pageSize: 10,
-  });*/
+  });
 
 
 module.exports = {
@@ -44,3 +46,5 @@ module.exports = {
             .catch(err => res.status(404).json(err));
     }
 };
+
+*/

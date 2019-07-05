@@ -1,6 +1,6 @@
 //Updated article API page, will implement later.
 
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import API from "../../utils/API";
 
 class News extends Component {
@@ -76,3 +76,5 @@ class News extends Component {
 }
 
 export default News;
+
+*/
