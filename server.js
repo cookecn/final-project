@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users")
+const news = require('./routes/api/news');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
@@ -21,6 +22,7 @@ const userToken = client.createUserToken('the-user-id');
 console.log("the user token is: " + userToken);
 
 const colbyFeed = client.feed('timeline', 'the-user-id', process.env.GETSREAM_APP_TOKEN);
+
 
 /*colbyFeed.addActivity({
   username: "Colby",
@@ -69,6 +71,9 @@ client.user("john-doe").getOrCreate({
 
 client.user('').get();
 
+
+//mongoose connection for getStream
+
 const streamNode = require('getstream-node');
 const streamMongoose = new streamNode.MongooseBackend()
 streamMongoose.enrichActivities(activities).then(function(enrichedActivities) {
@@ -77,11 +82,13 @@ streamMongoose.enrichActivities(activities).then(function(enrichedActivities) {
     console.log('error', err)
 });
 
+//follow another user, boilerplate code
 /*const followUser = (username, following) => {
   const timelineFeed = client.feed('timeline', username);
   timelineFeed.follow('user', following);
 };
 
+//get another user's timeline feed
 const getTimelineFeed = (username) => {
   const timelineFeed = client.feed('timeline', username);
   return timelineFeed.get({
@@ -198,6 +205,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Routes
 app.use("/api/users", users);
+app.use("/api/news", news);
 //app.use("/api/messages", messages);
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there

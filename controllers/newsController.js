@@ -1,15 +1,15 @@
 const db = require('../models');
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
-const fetchNews = (searchTerm, pageNum) => 
+/*const fetchNews = (searchTerm, pageNum) => 
   newsapi.v2.everything({
     q: searchTerm,
     language: 'en',
     page: pageNum,
     pageSize: 10,
-  });
+  });*/
 
-  
+
 module.exports = {
     findAll: function(req,res) {
         db.News
@@ -27,6 +27,12 @@ module.exports = {
     create: function(req, res) {
         db.News
             .create(req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    update: function(req, res) {
+        db.News
+            .update(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

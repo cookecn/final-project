@@ -64,8 +64,8 @@ class Navbar extends Component {
                 </a>
               </li>
             </ul>
-            <ul className="right hide-on-med-and-down white-text">
-              <li>
+            <ul className="right white-text">
+              <li  className="hide-on-med-and-down">
                 <Link
                   to="/register"
                   style={{
@@ -78,7 +78,7 @@ class Navbar extends Component {
                   Register
                 </Link>
               </li>
-              <li>
+              <li className="hide-on-med-and-down"> 
                 <Link
                   to="/login"
                   style={{
