@@ -127,6 +127,7 @@ const addReaction = (username, type, postActivityId) => {
 
 };*/
 
+/*
 //news Articles for updating every five seconds using the pusher api.
 const pusher = new Pusher({
   appId: process.env.pusherId,
@@ -175,6 +176,8 @@ app.get('/live', (req, res) => {
   })
   .catch(err => console.log(err));
 })
+
+*/
 
 
 // Bodyparser middleware

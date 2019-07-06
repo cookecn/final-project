@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import profileImage from "../../images/profile.jpg";
-import NewsFeed from "../layout/NewsFeed";
+//import NewsFeed from "../layout/NewsFeed";
 
 class Profile extends Component {
   componentDidMount() {}
@@ -46,10 +46,6 @@ class Profile extends Component {
               <Link to="/editProfile">Edit Profile</Link>
             </div>
           </div>
-        </div>
-
-        <div className="col s9">
-          <NewsFeed />
         </div>
       </div>
     );
