@@ -9,6 +9,14 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 
+router.get("/", (req, res) => {
+  if (user) {
+    return res.status(400).json(errors);
+  } else {
+    return res.status(202).json(res);
+  }
+});
+
 router.post("/editProfile", (req, res) => {
   User.updateBio({ bio: req.body.bio }).then(user => {
     if (user) {

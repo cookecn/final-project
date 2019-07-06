@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-//const users = require("./routes/api/users")
+const users = require("./routes/api/users")
 //const news = require('./routes/api/news');
 const app = express();
 //const server = require('http').Server(app);
@@ -204,7 +204,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Routes
-app.use(routes);
+app.use("/api/users", users);
 //app.use("/api/news", news);
 //app.use("/api/messages", messages);
 
