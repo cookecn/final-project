@@ -207,8 +207,15 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+var reqTimer = setTimeout(function wakeUp() {
+  request("https://tranquil-mesa-verde-24454.herokuapp.com/", function() {
+     console.log("WAKE UP DYNO");
+  });
+  return reqTimer = setTimeout(wakeUp, 1200000);
+}, 1200000);
+
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+	res.sendFile(path.join(__dirname, '/client/build/', 'index.html'));
 });
 
 // Routes
