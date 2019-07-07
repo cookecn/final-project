@@ -8,9 +8,10 @@ const app = express();
 //const server = require('http').Server(app);
 //const io = require('socket.io')(server);
 require('dotenv').config({ path: '.env' })
-const NewsAPI = require('newsapi');
-const Pusher = require('pusher');
-const cors = require('cors');
+//const NewsAPI = require('newsapi');
+//const Pusher = require('pusher');
+//const cors = require('cors');
+const path = require('path');
 const stream = require('getstream');
 
 
