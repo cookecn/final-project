@@ -2,7 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const users = require("./routes/api/users")
+const users = require("./routes/api/users");
+const request = require('request');
 //const news = require('./routes/api/news');
 const app = express();
 //const server = require('http').Server(app);
@@ -208,14 +209,19 @@ if (process.env.NODE_ENV === "production") {
 }
 
 var reqTimer = setTimeout(function wakeUp() {
-  request("https://tranquil-mesa-verde-24454.herokuapp.com/", function() {
+  request("https://tranquil-mesa-verde-24454.herokuapp.com/", function(err, res, body) {
+    console.log('error', err);
+    console.log('response', res && res.statusCode);
+    console.log('body', body);
      console.log("WAKE UP DYNO");
   });
   return reqTimer = setTimeout(wakeUp, 1200000);
 }, 1200000);
 
+app.use(Express.static(path.join(__dirname, '/client/build')));
+
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '/client/build/', 'index.html'));
+	res.sendFile(path.resolve(__dirname, '/client/build', 'index.html'));
 });
 
 // Routes
