@@ -1,6 +1,12 @@
 # final-project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Final Project](../client/src/images/final-project.gif)
+
+# Contributors
+*@cookecn
+
+# Technology
+*Node, Express, MongoDb, React, GetStream, NewsApi, Bcrypt, Passport 
 
 ## Available Scripts
 
@@ -36,3 +42,14 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+### `Github Links to projects:`
+https://github.com/cookecn/final-project
+### `Heroku Deployed Website`
+https://tranquil-mesa-verde-24454.herokuapp.com/
+
+### `Contact`
+* e-mail: colby.n.cooke@vanderbilt.edu
+* LinkedIN: https://www.linkedin.com/in/colby-cooke/
+* GitHub: https://github.com/cookecn
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
