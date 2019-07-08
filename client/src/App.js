@@ -12,7 +12,7 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/layout/Footer/Footer";
-import Messages from "./components/layout/Messages";
+//import Messages from "./components/layout/Messages";
 import NewsFeed from "./components/layout/NewsFeed";
 import Profile from "./components/layout/Profile";
 import Stream from "./components/layout/Stream/Stream";
@@ -47,7 +47,6 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/messages" component={Messages} />
             <Route exact path="/live" component={NewsFeed} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/stream" component={Stream} />

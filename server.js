@@ -3,15 +3,15 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
-const request = require('request');
+//const request = require('request');
 //const news = require('./routes/api/news');
 const app = express();
 //const server = require('http').Server(app);
 //const io = require('socket.io')(server);
 require('dotenv').config({ path: '.env' })
-//const NewsAPI = require('newsapi');
-//const Pusher = require('pusher');
-//const cors = require('cors');
+const NewsAPI = require('newsapi');
+const Pusher = require('pusher');
+const cors = require('cors');
 const path = require('path');
 const stream = require('getstream');
 
@@ -129,7 +129,7 @@ const addReaction = (username, type, postActivityId) => {
 
 };*/
 
-/*
+
 //news Articles for updating every five seconds using the pusher api.
 const pusher = new Pusher({
   appId: process.env.pusherId,
@@ -179,7 +179,7 @@ app.get('/live', (req, res) => {
   .catch(err => console.log(err));
 })
 
-*/
+
 
 
 // Bodyparser middleware

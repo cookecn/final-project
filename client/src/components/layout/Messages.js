@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import API from "../../utils/API";
 //import { Link } from "react-router-dom";
 //import { Collection, CollectionItem } from "../collection/Collection";
@@ -104,3 +104,4 @@ class Messages extends Component {
 }
 
 export default Messages;
+*/

@@ -18,10 +18,6 @@ const UserSchema = new Schema({
     statusText: {
       type: String
     },
-    bio: {
-      type: String,
-      required: true
-    },
     date: {
       type: Date,
       default: Date.now

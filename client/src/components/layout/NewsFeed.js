@@ -1,4 +1,4 @@
-/*import React, { Component } from "react";
+import React, { Component } from "react";
 import Pusher from 'pusher-js';
 import pushid from 'pushid';
 
@@ -51,4 +51,3 @@ class NewsFeed extends Component {
 } 
 
 export default NewsFeed;
-*/

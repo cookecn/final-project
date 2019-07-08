@@ -32,7 +32,7 @@ class Landing extends Component {
             </div>
             <div className="col s6 center-align">
             <Link to="/dashboard">
-            <button className="btn-floating btn-large waves-effect waves-light red"><i class="material-icons red">home</i></button>
+            <button className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons red">home</i></button>
             </Link>
             </div>
           </div>

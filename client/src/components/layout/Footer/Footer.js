@@ -38,42 +38,32 @@ class Footer extends Component {
               <h5 className="white-text">Routes</h5>
               <ul>
                 <li>
-                  <Link to="/dashboard">
-                    <a className="white-text" href="#!">
+                  <Link to="/dashboard" className="white-text" href="#!">
                       Home
-                    </a>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/profile">
-                    <a className="white-text" href="#!">
+                  <Link to="/profile" className="white-text" href="#!">
                       Profile
-                    </a>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/login">
-                    <a className="white-text" href="#!">
+                  <Link to="/login" className="white-text" href="#!">
                       Login
-                    </a>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/register">
-                    <a className="white-text" href="#!">
+                  <Link to="/register" className="white-text" href="#!">
                       Sign-Up
-                    </a>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/login">
-                    <a
+                  <Link to="/login"
                       className="white-text"
                       href="#!"
                       onClick={this.onLogoutClick}
                     >
                       Logout
-                    </a>
                   </Link>
                 </li>
               </ul>
