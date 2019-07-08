@@ -1,6 +1,6 @@
 # final-project
 
-![Final Project](../client/src/images/final-project.gif)
+![Final Project](/client/src/images/final-project.gif)
 
 # Contributors
 *@cookecn
